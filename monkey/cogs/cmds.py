@@ -6,7 +6,13 @@ from discord.ext import commands as dcmd
 import monkey
 
 def __init__(bot):
+    echo(bot)
     monkey_help(bot)
+
+def echo(bot):
+    @bot.command()
+    async def echo(ctx, *, text):
+        await ctx.send(text)
 
 def monkey_help(bot):
     bot.remove_command('help')
@@ -33,3 +39,4 @@ def monkey_help(bot):
                                 found = True
                     if not found:
                         print("Not found")
+

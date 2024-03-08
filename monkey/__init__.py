@@ -9,7 +9,7 @@ from .events import *
 from .messages import *
 
 def version():
-    return "v0.0.0.1"
+    return "v0.0.0.2"
 
 def time():
     return datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")

@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 import monkey
 
-discord_time_start = time.perf_counter()
+tts = time.perf_counter()
 
 print(f"""
 ___  ___            _               ______       _   
@@ -33,9 +33,10 @@ bot = dcmd.Bot(intents=intents, command_prefix=monkey.config.get_prefix(), help_
 
 @bot.event
 async def on_ready():
-    print(f"{bot.user} has connected to Discord in {round(time.perf_counter() - discord_time_start, 2)}s!")
+    print(f"{bot.user} has connected to Discord in {round(time.perf_counter() - tts, 2)}s!")
     monkey.events.__init__(bot)
     monkey.cogs.cmds.__init__(bot)
+    monkey.cogs.gifs.__init__(bot)
 
 def main():
     bot.run(monkey.config.get_bot_token())

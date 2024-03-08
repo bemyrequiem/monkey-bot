@@ -6,7 +6,6 @@ def __init__(bot):
     join(bot)
     leave(bot)
     message(bot)
-    print("initialised")
 
 def join(bot):
     @bot.event
@@ -28,3 +27,9 @@ def message(bot):
         print(
             f"Message from {message.author} in {message.guild} ({message.channel}): {message.content} @ {monkey.time()}"
         )
+
+        if msg := monkey.messages.check_keywords(message.content):
+            await message.channel.send(msg)
+
+        await bot.process_commands(message)
+        
